@@ -1,6 +1,10 @@
 Set-PSReadLineOption -EditMode Emacs
 
 function ga    { git add                                    @args }
+function gb    { git branch                                 @args }
+function gc    { git commit --verbose                       @args }
+function gd    { git diff                                   @args }
+function gdca  { git diff --cached                          @args }
 function gf    { git fetch                                  @args }
 function gloga { git log --graph --oneline --decorate --all @args }
 function gst   { git status                                 @args }
