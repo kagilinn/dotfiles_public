@@ -30,9 +30,9 @@ alias rm='rm -i'
 alias vim='vim -p'
 alias view='vim -R -p'
 
-alias grep='grep --color=auto'
-alias fgrep='grep --color=auto -F'
-alias egrep='grep --color=auto -E'
+alias grep='grep --color=auto -I'
+alias fgrep='grep --color=auto -I -F'
+alias egrep='grep --color=auto -I -E'
 
 alias rcs-checkout='co -l'
 alias rcs-commit='ci -l'
