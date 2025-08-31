@@ -6,10 +6,11 @@ function   Commit-RCS { ci -l @args }
 
 function ga    { git add                                    @args }
 function gb    { git branch                                 @args }
-function gc    { git commit --verbose                       @args }
+# gc は Get-Content の標準エイリアスと被るので定義しない.
+#function gc   { git commit --verbose                       @args }
 function gd    { git diff                                   @args }
 function gdca  { git diff --cached                          @args }
-function gdft  { git difftool @args }
+function gdft  { git difftool                               @args }
 function gf    { git fetch                                  @args }
 function glog  { git log --graph --oneline --decorate       @args }
 function gloga { git log --graph --oneline --decorate --all @args }
