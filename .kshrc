@@ -34,9 +34,15 @@ alias grep='grep --color=auto -I'
 alias fgrep='grep --color=auto -I -F'
 alias egrep='grep --color=auto -I -E'
 
-alias rcs-checkout='co -l'
-alias rcs-commit='ci -l'
-alias rcs-init='mkdir -v RCS'
+if type co > /dev/null 2>&1
+then
+    if type ci > /dev/null 2>&1
+    then
+        alias rcs-init='mkdir -v RCS'
+        alias rcs-checkout='co -l'
+        alias rcs-commit='ci -l'
+    fi
+fi
 
 alias ga='git add'
 alias gb='git branch'

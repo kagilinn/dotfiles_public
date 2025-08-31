@@ -64,9 +64,15 @@ alias egrep='grep -E -I --color=auto'
 alias view='vim -R -p'
 alias vim='vim -p'
 
-alias rcs-init='mkdir -v RCS'
-alias rcs-checkout='co -l'
-alias rcs-commit='ci -l'
+if type co > /dev/null 2>&1
+then
+    if type ci > /dev/null 2>&1
+    then
+        alias rcs-init='mkdir -v RCS'
+        alias rcs-checkout='co -l'
+        alias rcs-commit='ci -l'
+    fi
+fi
 
 alias ga='git add'
 alias gb='git branch'

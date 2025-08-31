@@ -4,6 +4,11 @@ if status is-interactive
     abbr --add rm    rm -i
     abbr --add vim   vim -p
     abbr --add view  vim -p -R
+
+    abbr --add rcs-init     mkdir -v RCS
+    abbr --add rcs-checkout co -l
+    abbr --add rcs-commit   ci -l
+
     abbr --add ga    git add
     abbr --add gb    git branch
     abbr --add gc    git commit --verbose

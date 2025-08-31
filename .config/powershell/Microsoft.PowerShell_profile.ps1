@@ -1,5 +1,9 @@
 Set-PSReadLineOption -EditMode Emacs
 
+function     Init-RCS { New-Item -Type Directory -Name RCS }
+function Checkout-RCS { co -l @args }
+function   Commit-RCS { ci -l @args }
+
 function ga    { git add                                    @args }
 function gb    { git branch                                 @args }
 function gc    { git commit --verbose                       @args }

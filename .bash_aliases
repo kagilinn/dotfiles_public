@@ -20,9 +20,15 @@ alias fgrep='grep -F -I --color=auto'
 alias grep='grep -I --color=auto'
 
 # RCS の分かりやすさ優先コマンド.
-alias rcscheckout='co -l'
-alias rcscommit='ci -l'
-alias rcsinit='mkdir -v RCS'
+if type co > /dev/null 2>&1
+then
+    if type ci > /dev/null 2>&1
+    then
+        alias rcs-init='mkdir -v RCS'
+        alias rcs-checkout='co -l'
+        alias rcs-commit='ci -l'
+    fi
+fi
 
 # git 系 alias
 alias ga='git add'
