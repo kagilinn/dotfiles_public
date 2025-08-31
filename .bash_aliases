@@ -8,13 +8,13 @@ alias lla='ls -al $LS_COLOR_OPTION_FLAG'
 alias ls='ls $LS_COLOR_OPTION_FLAG'
 alias mv='mv -i'
 alias rm='rm -i'
-alias view='view -p'
+alias view='vim -R -p'
 alias vim='vim -p'
 
 # 対話からの grep はバイナリ無視, 色付き.
-alias egrep='egrep -I --color'
-alias fgrep='fgrep -I --color'
-alias grep='grep -I --color'
+alias egrep='grep -E -I --color=auto'
+alias fgrep='grep -F -I --color=auto'
+alias grep='grep -I --color=auto'
 
 # RCS の分かりやすさ優先コマンド.
 alias rcscheckout='co -l'
