@@ -1,7 +1,10 @@
+#
+# ~/.bash_aliases
+#
+
 export LOADED_PROFILES="${LOADED_PROFILES} .bash_aliases"
 
 alias cp='cp -i'
-alias ghc='stack ghc --'
 alias la='ls -a $LS_COLOR_OPTION_FLAG'
 alias ll='ls -l $LS_COLOR_OPTION_FLAG'
 alias lla='ls -al $LS_COLOR_OPTION_FLAG'
@@ -35,3 +38,8 @@ alias gst='git status'
 alias gsta='git stash save'
 alias gstl='git stash list'
 alias gstp='git stash pop'
+
+if type stack > /dev/null 2>&1
+then
+    alias ghc='stack ghc --'
+fi
