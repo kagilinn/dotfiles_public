@@ -23,7 +23,6 @@ if [ -r ~/.git-prompt.sh ]; then
 	source ~/.git-prompt.sh
 fi
 PS1=''
-AUTO_LS_AFTER_CD_DIR="${PWD}"
 prompt_command_function () {
 	# 現時点での終了コードを保存.
 	local status=$(echo ${PIPESTATUS[@]})
@@ -36,10 +35,6 @@ prompt_command_function () {
 			break
 		fi
 	done
-
-	# 初回判定.
-	[[ $AUTO_LS_AFTER_CD_DIR != $PWD ]] && ls
-	AUTO_LS_AFTER_CD_DIR="${PWD}"
 
 	if [[ -n "${SSH_CONNECTION}" || -n "${SSH_CLIENT}" ]]; then
 		# SSH 接続の場合, ユーザ名やホスト名も表示.
