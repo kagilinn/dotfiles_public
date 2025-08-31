@@ -33,17 +33,23 @@ fi
 # git 系 alias
 alias ga='git add'
 alias gb='git branch'
-alias gc='git commit -v'
+alias gc='git commit --verbose'
 alias gd='git diff'
 alias gdca='git diff --cached'
+alias gdft='git difftool'
 alias gf='git fetch'
 alias glog='git log --oneline --decorate --graph'
 alias gloga='git log --oneline --decorate --graph --all'
-alias gpsup='git push --set-upstream origin `git symbolic-ref --short HEAD`'
+alias gmt='git mergetool'
+alias gpsup='git push --set-upstream origin $(git symbolic-ref --short HEAD)'
+alias grs='git restore'
+alias grst='git restore --staged'
 alias gst='git status'
 alias gsta='git stash save'
 alias gstl='git stash list'
 alias gstp='git stash pop'
+alias gsw='git switch'
+alias gswc='git switch --create'
 
 if type stack > /dev/null 2>&1
 then
