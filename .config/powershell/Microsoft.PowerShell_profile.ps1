@@ -15,3 +15,10 @@ function gsw   { git switch                                 @args }
 
 New-Alias 'unzip' 'Expand-Archive'
 New-Alias 'zip'   'Compress-Archive'
+
+Remove-Alias 'cd'
+function cd {
+    Set-Location @args
+    Write-Host "`e]0;PowerShell - $((Get-Location).Path -creplace $Env:HOME,'~')`a"
+}
+Write-Host "`e]0;PowerShell - $((Get-Location).Path -creplace $Env:HOME,'~')`a"
