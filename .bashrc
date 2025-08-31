@@ -1,3 +1,10 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 export LOADED_PROFILES="${LOADED_PROFILES} <.bashrc>"
 
 [ -r ~/.bash_aliases ] && source ~/.bash_aliases
