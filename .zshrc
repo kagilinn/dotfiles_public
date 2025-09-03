@@ -24,6 +24,8 @@ setopt markdirs
 setopt nobeep
 setopt prompt_subst
 
+autoload -Uz add-zsh-hook
+
 function precmd_titlebar () {
     printf "\e]0;zsh - %s\a" ${PWD/#$HOME/~}
 }
@@ -46,8 +48,8 @@ zstyle ':vcs_info:git:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' formats       ' (%b%u%c) '
 zstyle ':vcs_info:git:*' actionformats ' (%b%u%c|%a) '
 
-precmd_functions+=( precmd_titlebar )
-precmd_functions+=( precmd_vcs_info )
+add-zsh-hook precmd precmd_titlebar
+add-zsh-hook precmd precmd_vcs_info
 export PROMPT='
 ⓩ%1~$vcs_info_msg_0_%# '
 
