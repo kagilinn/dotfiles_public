@@ -45,8 +45,15 @@ zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr   '+'
 zstyle ':vcs_info:git:*' unstagedstr '*'
 
-zstyle ':vcs_info:git:*' formats       ' (%b%u%c) '
-zstyle ':vcs_info:git:*' actionformats ' (%b%u%c|%a) '
+zstyle ':vcs_info:git:*' formats       ' (%b%u%c%m) '
+zstyle ':vcs_info:git:*' actionformats ' (%b%u%c%m|%a) '
+zstyle ':vcs_info:git+set-message:*' hooks hook_vcs_info_git
+function +vi-hook_vcs_info_git() {
+    if [[ "$(git stash list 2> /dev/null)" != "" ]]
+    then
+        hook_com[misc]+='$'
+    fi
+}
 
 add-zsh-hook precmd precmd_titlebar
 add-zsh-hook precmd precmd_vcs_info
