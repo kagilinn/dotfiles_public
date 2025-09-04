@@ -53,6 +53,11 @@ function +vi-hook_vcs_info_git() {
     then
         hook_com[misc]+='$'
     fi
+
+    if [[ "$(git ls-files --others 2> /dev/null)" != "" ]]
+    then
+        hook_com[misc]+='%%'
+    fi
 }
 
 add-zsh-hook precmd precmd_titlebar
