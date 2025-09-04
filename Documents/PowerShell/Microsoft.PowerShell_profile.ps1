@@ -26,3 +26,25 @@ function gswc  { git switch --create                        @args }
 
 New-Alias 'unzip' 'Expand-Archive'
 New-Alias 'zip'   'Compress-Archive'
+
+function prompt {
+    [string]$cwd = $executionContext.SessionState.Path.CurrentLocation
+    [string]$git_prompt = ''
+    if (Get-Command -ErrorAction SilentlyContinue git) {
+    if (git rev-parse --is-inside-work-tree) {
+        [string]$branch = git rev-parse --abbrev-ref HEAD
+        [string]$unstaged  = ''
+        [string]$staged    = ''
+        [string]$untracked = ''
+        foreach ($l in $(git status --porcelain)) {
+            if ($l.Substring(1, 1) -ceq  'M') { $unstaged  = '*' }
+            if ($l.Substring(0, 1) -ceq 'M' ) { $staged    = '+' }
+            if ($l.Substring(0, 2) -ceq '??') { $untracked = '%' }
+        }
+        [string]$stashed = $(git stash list) ? '$' : ''
+        [string]$status = "$unstaged$staged$stashed$untracked"
+        if ($status -cne '') { $status = " $status" }
+        $git_prompt = " ($branch$status)"
+    }}
+    "PS $cwd$git_prompt$('>' * ($nestedPromptLevel + 1)) ";
+}
