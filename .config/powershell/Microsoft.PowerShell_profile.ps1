@@ -50,12 +50,5 @@ function prompt {
         if ($status -cne '') { $status = " $status" }
         $git_prompt = " ($branch$status)"
     }}
-    "PS $cwd$git_prompt$('>' * ($nestedPromptLevel + 1)) ";
+    "`e]0;PowerShell - $($cwd -creplace $Env:HOME,'~')`aPS $cwd$git_prompt$('>' * ($nestedPromptLevel + 1)) ";
 }
-
-Remove-Alias 'cd'
-function cd {
-    Set-Location @args
-    Write-Host "`e]0;PowerShell - $((Get-Location).Path -creplace $Env:HOME,'~')`a"
-}
-Write-Host "`e]0;PowerShell - $((Get-Location).Path -creplace $Env:HOME,'~')`a"
