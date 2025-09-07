@@ -15,9 +15,6 @@ export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_DESCRIBE_STYLE='branch'
 export GIT_PS1_SHOWCOLORHINTS=true
-if [ -r ~/.git-prompt.sh ]; then
-	source ~/.git-prompt.sh
-fi
 PS1=''
 prompt_command_function () {
 	# 現時点での終了コードを保存.
@@ -48,12 +45,7 @@ prompt_command_function () {
 }
 PROMPT_COMMAND='prompt_command_function'
 
-# git-completion
-if [ -r ~/.git-completion.bash ]; then
-	source ~/.git-completion.bash
-fi
-
 [[ -r ~/.bash_aliases ]] && source ~/.bash_aliases
-[ -r ~/.bashrc_local ] && source ~/.bashrc_local
+[[ -r ~/.bashrc_local ]] && source ~/.bashrc_local
 
 export LOADED_PROFILES="${LOADED_PROFILES} </.bashrc>"
