@@ -7,8 +7,6 @@
 
 export LOADED_PROFILES="${LOADED_PROFILES} <.bashrc>"
 
-[ -r ~/.bash_aliases ] && source ~/.bash_aliases
-
 
 # git-prompt
 export GIT_PS1_SHOWUPSTREAM='auto'
@@ -55,6 +53,7 @@ if [ -r ~/.git-completion.bash ]; then
 	source ~/.git-completion.bash
 fi
 
+[[ -r ~/.bash_aliases ]] && source ~/.bash_aliases
 [ -r ~/.bashrc_local ] && source ~/.bashrc_local
 
 export LOADED_PROFILES="${LOADED_PROFILES} </.bashrc>"
