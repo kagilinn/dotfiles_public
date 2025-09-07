@@ -19,7 +19,7 @@ if status is-interactive
     abbr --add glog  git log --oneline --decorate --graph
     abbr --add gloga git log --oneline --decorate --graph --all
     abbr --add gmt   git mergetool
-    abbr --add gpsup git push --set-upstream origin (git symbolic-ref --short HEAD)
+    abbr --add gpsup git push --set-upstream origin '(git symbolic-ref --short HEAD)'
     abbr --add grs   git restore
     abbr --add grst  git restore --staged
     abbr --add gst   git status
