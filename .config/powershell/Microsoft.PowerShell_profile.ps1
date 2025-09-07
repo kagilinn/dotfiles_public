@@ -33,6 +33,7 @@ New-Alias 'zip'   'Compress-Archive'
 
 function prompt {
     [string]$cwd = $executionContext.SessionState.Path.CurrentLocation -creplace "^$Env:HOME",'~'
+    [string]$cwd_last = $cwd -creplace '^.*/',''
     [string]$git_prompt = ''
     if (Get-Command -ErrorAction SilentlyContinue git) {
     if (git rev-parse --is-inside-work-tree) {
@@ -50,5 +51,5 @@ function prompt {
         if ($status -cne '') { $status = " $status" }
         $git_prompt = " ($branch$status)"
     }}
-    "`e]0;PowerShell - $cwd`aPS $cwd$git_prompt$('>' * ($nestedPromptLevel + 1)) "
+    "`e]0;PowerShell - $cwd_last`aPS $cwd$git_prompt$('>' * ($nestedPromptLevel + 1)) ";
 }
