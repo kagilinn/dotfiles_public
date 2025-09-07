@@ -46,6 +46,10 @@ prompt_command_function () {
 		local screen='\[\ek\e\\\]'
 	fi
 
+	# 端末のタイトルバーを指定.
+	local term_title="${PWD/#$HOME/\~}"
+
+	printf "\e]0;%s\a" "${term_title}"
 	if type __git_ps1 > /dev/null 2>&1
 	then
 		__git_ps1 "$screen$status_header$body" '\$ '
