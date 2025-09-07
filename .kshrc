@@ -13,7 +13,49 @@ set -o emacs
 
 prompt_command () {
     cwd="${PWD/#$HOME/\~}"
-    printf "\e]0;ksh - %s\a\n%s$ " "${cwd##*/}" "${cwd}"
+    if type git > /dev/null 2>&1
+    then
+        if git rev-parse --is-inside-work-tree > /dev/null 2>&1
+        then
+            git_branch_name="$(git rev-parse --abbrev-ref HEAD)"
+
+            if git diff --no-ext-diff --quiet
+            then
+                git_status_flags=''
+            else
+                git_status_flags='*'
+            fi
+
+            if git diff --no-ext-diff --quiet --cached
+            then
+                :
+            else
+                git_status_flags="${git_status_flags}+"
+            fi
+
+            if [[ "$(git stash list)" != "" ]]
+            then
+                git_status_flags="${git_status_flags}\$"
+            fi
+
+            if [[ "$(git ls-files --others)" != "" ]]
+            then
+                git_status_flags="${git_status_flags}%"
+            fi
+
+            if [[ "${git_status_flags}" != "" ]]
+            then
+                git_status_flags=" ${git_status_flags}"
+            fi
+
+            main_prompt="${cwd} (${git_branch_name}${git_status_flags})"
+        else
+            main_prompt="${cwd}"
+        fi
+    else
+        main_prompt="${cwd}"
+    fi
+    printf "\e]0;ksh - %s\a\n%s$ " "${cwd##*/}" "${main_prompt}"
 }
 PS1='$(prompt_command)'
 
