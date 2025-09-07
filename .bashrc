@@ -9,8 +9,6 @@ export LOADED_PROFILES="${LOADED_PROFILES} <.bashrc>"
 
 [ -r ~/.bash_aliases ] && source ~/.bash_aliases
 
-alias hd='hexdump -C'
-alias irb='irb -I.'
 
 # git-prompt
 export GIT_PS1_SHOWUPSTREAM='auto'
