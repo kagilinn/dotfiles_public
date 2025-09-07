@@ -45,7 +45,13 @@ prompt_command_function () {
 	if [ $TERM == 'screen' ]; then
 		local screen='\[\ek\e\\\]'
 	fi
-	__git_ps1 "$screen$status_header$body" '\$ '
+
+	if type __git_ps1 > /dev/null 2>&1
+	then
+		__git_ps1 "$screen$status_header$body" '\$ '
+	else
+		PS1="$screen$status_header$body\$ "
+	fi
 }
 PROMPT_COMMAND='prompt_command_function'
 
