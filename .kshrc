@@ -11,13 +11,11 @@ fi
 # Emacs モード. 補完は ESC => ESC で.
 set -o emacs
 
-cd () {
-    command cd "$@" && printf "\e]0;ksh - ${PWD/#$HOME/\~}\a"
+prompt_command () {
+    cwd="${PWD/#$HOME/\~}"
+    printf "\e]0;ksh - %s\a\n%s$ " "${cwd##*/}" "${cwd}"
 }
-printf "\e]0;ksh - ${PWD/#$HOME/\~}\a"
-
-PS1='
-${PWD##*/}$ '
+PS1='$(prompt_command)'
 
 alias ls='ls ${LS_COLOR_OPTION_FLAG}'
 alias la='ls -a ${LS_COLOR_OPTION_FLAG}'
