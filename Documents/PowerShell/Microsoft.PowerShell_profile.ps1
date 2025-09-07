@@ -2,8 +2,8 @@ Set-PSReadLineOption -EditMode Emacs
 
 function ga    { git add                                    @args }
 function gb    { git branch                                 @args }
-# gc は Get-Content の標準エイリアスと被るので定義しない.
-#function gc   { git commit --verbose                       @args }
+# gc だと Get-Content の標準エイリアスと被る.
+function gitc  { git commit --verbose                       @args }
 function gd    { git diff                                   @args }
 function gdca  { git diff --cached                          @args }
 function gdft  { git difftool                               @args }
