@@ -7,6 +7,10 @@
 
 export LOADED_PROFILES="${LOADED_PROFILES} <.bashrc>"
 
+if type rbenv > /dev/null 2>&1
+then
+	eval "$(rbenv init - --no-rehash bash)"
+fi
 
 # git-prompt
 export GIT_PS1_SHOWUPSTREAM='auto'
