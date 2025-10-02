@@ -44,6 +44,7 @@ function prompt {
         foreach ($l in $(git status --porcelain)) {
             if ($l.Substring(1, 1) -ceq  'M') { $unstaged  = '*' }
             if ($l.Substring(0, 1) -ceq 'M' ) { $staged    = '+' }
+            if ($l.Substring(0, 1) -ceq 'A' ) { $staged    = '+' }
             if ($l.Substring(0, 2) -ceq '??') { $untracked = '%' }
         }
         [string]$stashed = $(git stash list) ? '$' : ''
