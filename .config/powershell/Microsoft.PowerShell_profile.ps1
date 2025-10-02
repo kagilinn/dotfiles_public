@@ -32,11 +32,13 @@ New-Alias 'unzip' 'Expand-Archive'
 New-Alias 'zip'   'Compress-Archive'
 
 function prompt {
-    [string]$cwd = $executionContext.SessionState.Path.CurrentLocation -creplace "^$Env:HOME",'~'
+    [string]$home_ptn = "^$Env:HOME" -creplace '\\','\\'
+    [string]$cwd = $ExecutionContext.SessionState.Path.CurrentLocation -creplace $home_ptn,'~'
     [string]$cwd_last = $cwd -creplace '^.*/',''
     [string]$git_prompt = ''
     if (Get-Command -ErrorAction SilentlyContinue git) {
     if (git rev-parse --is-inside-work-tree) {
+        [string]$dotgit = $(git rev-parse --git-dir)
         [string]$branch = git rev-parse --abbrev-ref HEAD
         [string]$unstaged  = ''
         [string]$staged    = ''
@@ -49,7 +51,14 @@ function prompt {
         [string]$stashed = $(git stash list) ? '$' : ''
         [string]$status = "$unstaged$staged$stashed$untracked"
         if ($status -cne '') { $status = " $status" }
-        $git_prompt = " ($branch$status)"
+
+        [string]$merging = ''
+        if (Test-Path "$dotgit/MERGE_HEAD") { $merging = '|MERGING' }
+
+        [string]$conflict = ''
+        if ($(git ls-files --unmerged)) { $conflict = '|CONFLICT' }
+
+        $git_prompt = " ($branch$status$merging$conflict)"
     }}
     "`e]0;PowerShell - $cwd_last`aPS $cwd$git_prompt$('>' * ($nestedPromptLevel + 1)) ";
 }
