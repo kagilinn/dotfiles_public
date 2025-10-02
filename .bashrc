@@ -53,12 +53,11 @@ prompt_command_function () {
 		local screen='\[\ek\e\\\]'
 	fi
 
-	printf "\e]0;%s\a" "${term_title}"
 	if type __git_ps1 > /dev/null 2>&1
 	then
-		__git_ps1 "$screen$status_header$body" '\$ '
+		__git_ps1 "$term_title$screen$status_header$body" '\$ '
 	else
-		PS1="$screen$status_header$body\$ "
+		PS1="$term_title$screen$status_header$body\$ "
 	fi
 }
 PROMPT_COMMAND='prompt_command_function'
