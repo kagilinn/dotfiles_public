@@ -1,3 +1,4 @@
+# vim: set tabstop=4 shiftwidth=4 noexpandtab :
 #
 # ~/.bashrc
 #
@@ -35,7 +36,7 @@ prompt_command_function () {
 
 	if [[ -n "${SSH_CONNECTION}" || -n "${SSH_CLIENT}" ]]; then
 		# SSH 接続の場合, ユーザ名やホスト名も表示.
-		local body='\h:\W \u'
+		local body='[\h@\u]\W'
 	else
 		# SSH 接続でない場合, カレントディレクトリの表示のみ.
 		local body='\W'
