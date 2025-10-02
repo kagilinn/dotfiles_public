@@ -37,18 +37,21 @@ prompt_command_function () {
 	if [[ -n "${SSH_CONNECTION}" || -n "${SSH_CLIENT}" ]]; then
 		# SSH 接続の場合, ユーザ名やホスト名も表示.
 		local body='[\h@\u]\W'
+
+		# 端末のタイトルバーを指定.
+		local term_title="\e]0;\h@\u\a"
 	else
 		# SSH 接続でない場合, カレントディレクトリの表示のみ.
 		local body='\W'
+
+		# 端末のタイトルバーを指定.
+		local term_title="\e]0;${PWD/#$HOME/\~}\a"
 	fi
 
 	# screen 用に, プロンプトに動作中のコマンド名を埋め込む.
 	if [ $TERM == 'screen' ]; then
 		local screen='\[\ek\e\\\]'
 	fi
-
-	# 端末のタイトルバーを指定.
-	local term_title="${PWD/#$HOME/\~}"
 
 	printf "\e]0;%s\a" "${term_title}"
 	if type __git_ps1 > /dev/null 2>&1
