@@ -28,7 +28,9 @@ New-Alias 'unzip' 'Expand-Archive'
 New-Alias 'zip'   'Compress-Archive'
 
 function prompt {
-    [string]$home_ptn = "^$Env:HOME" -creplace '\\','\\'
+    [string]$home_ptn = "$Env:HOME"
+    if ($home_ptn -ceq '') { $home_ptn = "$Env:HOMEDRIVE$Env:HOMEPATH" }
+    $home_ptn = "^$home_ptn" -creplace '\\','\\'
     [string]$cwd = $ExecutionContext.SessionState.Path.CurrentLocation -creplace $home_ptn,'~'
     [string]$git_prompt = ''
     if (Get-Command -ErrorAction SilentlyContinue git) {
