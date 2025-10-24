@@ -49,7 +49,7 @@ prompt_command_function () {
 	fi
 
 	# screen 用に, プロンプトに動作中のコマンド名を埋め込む.
-	if [ $TERM == 'screen' ]; then
+	if [[ "${TERM:0:6}" == "screen" ]]; then
 		local screen='\[\ek\e\\\]'
 	fi
 

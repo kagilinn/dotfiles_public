@@ -1,0 +1,29 @@
+#〠 エンコーディング設定 〠 
+defutf8 on
+defencoding utf8
+encoding utf8 utf8
+
+# 起動時のメッセージを表示しない.
+startup_message off
+
+# ステータスバー.
+# %{= 文字色;背景色 (0=黒 1=赤 2=緑 3=黄 4=青 5=紫 6=空 7=白) }
+hardstatus alwayslastline "%{= 0;2}Ctrl+Z -> ?=help c=new n=next %{= 7;4} %-w%{= 0;3}%n %t%{= 7;4}%+w"
+
+shelltitle "$ |bash"
+
+autodetach on
+
+# Background Color Erase
+defbce on
+
+# 起動するシェル.
+#shell 
+
+# 履歴の行数.
+defscrollback 10000
+
+# Vim や less などの終了時にゴミが画面に残るの防止.
+altscreen on
+
+escape ^z^z
