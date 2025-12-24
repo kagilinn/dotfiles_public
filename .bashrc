@@ -13,6 +13,11 @@ then
 	eval "$(rbenv init - --no-rehash bash)"
 fi
 
+if type fzf > /dev/null 2>&1
+then
+	eval "$(fzf --bash)"
+fi
+
 # git-prompt
 export GIT_PS1_SHOWUPSTREAM='auto'
 export GIT_PS1_SHOWUNTRACKEDFILES=true

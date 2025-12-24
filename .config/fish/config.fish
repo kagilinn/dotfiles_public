@@ -28,4 +28,8 @@ if status is-interactive
     abbr --add gstp  git stash pop
     abbr --add gsw   git switch
     abbr --add gswc  git switch --create
+
+    if type -q fzf
+        fzf --fish | source
+    end
 end

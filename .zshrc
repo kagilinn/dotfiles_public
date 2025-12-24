@@ -9,6 +9,11 @@ then
     eval "$(rbenv init - --no-rehash zsh)"
 fi
 
+if type fzf > /dev/null 2>&1
+then
+    source <(fzf --zsh)
+fi
+
 setopt always_last_prompt
 setopt auto_cd
 setopt auto_list
