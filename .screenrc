@@ -8,7 +8,8 @@ startup_message off
 
 # ステータスバー.
 # %{= 文字色;背景色 (0=黒 1=赤 2=緑 3=黄 4=青 5=紫 6=空 7=白) }
-hardstatus alwayslastline "%{= 0;2}Ctrl+Z -> ?=help c=new n=next %{= 7;4} %-w%{= 0;3}%n %t%{= 7;4}%+w"
+#hardstatus alwayslastline "%{= 0;2}Ctrl+Z -> ?=help c=create n=next d=detach %{= 7;4} %-w%{= 0;3}%n %t%{= 7;4}%+w"
+hardstatus alwayslastline "%{= 2;0}Ctrl+Z -> ?=help d=detach  c=create n=next k=kill  S=split |=split-v TAB=focus x=remove"
 
 shelltitle "$ |$SHELL"
 caption always "%-w %{= 7;0} %n %t %{-} %+w"
