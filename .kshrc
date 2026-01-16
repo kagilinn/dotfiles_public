@@ -55,7 +55,7 @@ prompt_command () {
     else
         main_prompt="${cwd}"
     fi
-    printf "\e]0;ksh - %s\a\n%s$ " "${cwd##*/}" "${main_prompt}"
+    printf "\e]0;ksh - %s\a\n%s$ " "${cwd##*/}" "ⓚ${main_prompt}"
 }
 PS1='$(prompt_command)'
 
