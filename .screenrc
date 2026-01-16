@@ -11,7 +11,7 @@ startup_message off
 hardstatus alwayslastline "%{= 0;2}Ctrl+Z -> ?=help c=new n=next %{= 7;4} %-w%{= 0;3}%n %t%{= 7;4}%+w"
 
 shelltitle "$ |$SHELL"
-caption always "%-w %{= dd} %n %t %{-} %+w"
+caption always "%-w %{= 7;0} %n %t %{-} %+w"
 
 autodetach on
 
