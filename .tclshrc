@@ -1,0 +1,5 @@
+# -*- tab-width: 4; indent-tabs-mode: nil -*-
+# vim: set tabstop=4 shiftwidth=4 expandtab :
+
+set tcl_prompt1 { puts -nonewline "Tcl [pwd]> " }
+set tcl_prompt2 { puts -nonewline ">>> " }
