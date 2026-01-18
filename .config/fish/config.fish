@@ -1,5 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    abbr --add cp    cp -i
     abbr --add mv    mv -i
     abbr --add rm    rm -i
     abbr --add vim   vim -p

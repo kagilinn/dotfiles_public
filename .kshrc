@@ -64,6 +64,7 @@ alias la='ls -a ${LS_COLOR_OPTION_FLAG}'
 alias ll='ls -l ${LS_COLOR_OPTION_FLAG}'
 alias lla='ls -al ${LS_COLOR_OPTION_FLAG}'
 
+alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
@@ -74,6 +75,7 @@ alias grep='grep --color=auto -I'
 alias fgrep='grep --color=auto -I -F'
 alias egrep='grep --color=auto -I -E'
 
+# RCS の分かりやすさ優先コマンド.
 if type co > /dev/null 2>&1
 then
     if type ci > /dev/null 2>&1

@@ -83,6 +83,7 @@ alias egrep='grep -E -I --color=auto'
 alias view='vim -R -p'
 alias vim='vim -p'
 
+# RCS の分かりやすさ優先コマンド.
 if type co > /dev/null 2>&1
 then
     if type ci > /dev/null 2>&1
