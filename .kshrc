@@ -12,6 +12,16 @@ fi
 set -o emacs
 
 prompt_command () {
+    if [ -n "${SSH_CLIENT}" ]
+    then
+        ssh_header="[${USER}@$(hostname)]"
+    elif [ -n "${SSH_CLIENT}" ]
+    then
+        ssh_header="[${USER}@$(hostname)]"
+    else
+        ssh_header=''
+    fi
+
     cwd="${PWD/#$HOME/\~}"
     if type git > /dev/null 2>&1
     then
@@ -55,7 +65,7 @@ prompt_command () {
     else
         main_prompt="${cwd}"
     fi
-    printf "\e]0;ksh - %s\a\n%s$ " "${cwd##*/}" "ⓚ ${main_prompt}"
+    printf "\e]0;ksh - %s\a\n%s" "${cwd##*/}" "${ssh_header}${main_prompt} ⓚ "
 }
 PS1='$(prompt_command)'
 
@@ -105,3 +115,13 @@ alias gstl='git stash list'
 alias gstp='git stash pop'
 alias gsw='git switch'
 alias gswc='git switch --create'
+
+if type irb > /dev/null 2>&1
+then
+    alias irb='irb -I.'
+fi
+
+if type stack > /dev/null 2>&1
+then
+    alias ghc='stack ghc --'
+fi
