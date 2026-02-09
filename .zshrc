@@ -68,7 +68,7 @@ function +vi-hook_vcs_info_git() {
 add-zsh-hook precmd precmd_titlebar
 add-zsh-hook precmd precmd_vcs_info
 export PROMPT='
-ⓩ%1~$vcs_info_msg_0_%# '
+ⓩ %1~$vcs_info_msg_0_%# '
 
 alias ls='ls ${LS_COLOR_OPTION_FLAG}'
 alias la='ls -a ${LS_COLOR_OPTION_FLAG}'
