@@ -65,7 +65,7 @@ prompt_command () {
     else
         main_prompt="${cwd}"
     fi
-    printf "\e]0;ksh - %s\a\n%s" "${cwd##*/}" "${ssh_header}${main_prompt} ⓚ "
+    printf "\e]0;ksh - %s\a\n%s" "${cwd##*/}" "${ssh_header}${main_prompt} (k) "
 }
 PS1='$(prompt_command)'
 
