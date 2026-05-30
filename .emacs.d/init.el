@@ -40,6 +40,10 @@
   :ensure t
   :mode ((("\\.groovy\\'" "\\.gradle\\'") . groovy-mode)))
 
+(leaf kotlin-mode
+  :ensure t
+  :mode ((("\\.kt\\'") . kotlin-mode)))
+
 (leaf zig-mode
   :ensure t
   :mode ((("\\.zig\\'") . zig-mode)))
@@ -47,7 +51,8 @@
 (leaf eglot
   :hook ((c-mode-hook . eglot-ensure)
 	 (c++-mode-hook . eglot-ensure)
-         (csharp-mode-hook . eglot-ensure)))
+	 (csharp-mode-hook . eglot-ensure)
+	 (kotlin-mode-hook . eglot-ensure)))
 
 (leaf company
   :ensure t
@@ -84,7 +89,7 @@
   (leaf recentf-ext :ensure t)
   :custom
   `((recentf-save-file       . "~/.emacs.d/.recentf")
-    (recentf-max-saved-items . 64)
+    (recentf-max-saved-items . 256)
     (recentf-auto-cleanup    . 'never)
     (recentf-exclude         . '(".recentf")))
   :config
@@ -102,11 +107,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(backup-directory-alist '(("*" . "~/.emacs.d/backup-file")))
  '(custom-enabled-themes '(deeper-blue))
- '(package-selected-packages nil))
+ '(make-backup-files t)
+ '(package-selected-packages '(eglot-inactive-regions)))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(setq recentf-auto-save-timer (run-with-idle-timer 60 t 'recentf-save-list))
