@@ -5,3 +5,8 @@
 /.emacs.d/elpa/
 /.emacs.d/*.elc
 /.emacs.d/*.el~
+/.vim/autoload/
+/.vim/dein/
+/.vim/plugged/
+/.vim/view/
+/.vim/.netrwhist

@@ -1,0 +1,1 @@
+    [TYPE] $VAR = INIT_VALUE
