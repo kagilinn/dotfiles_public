@@ -8,5 +8,6 @@
 /.vim/autoload/
 /.vim/dein/
 /.vim/plugged/
+/.vim/skk/
 /.vim/view/
 /.vim/.netrwhist
