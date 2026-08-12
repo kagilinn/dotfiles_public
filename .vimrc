@@ -47,6 +47,9 @@ set nobackup
 " 22 外部コマンドの実行
 "set shell=ksh
 
+" 25 言語固有
+set iminsert=0
+
 " 26 マルチバイト文字
 set fileencodings=ucs-bom,utf-8,cp932,default,latin1
 set ambiwidth=double
