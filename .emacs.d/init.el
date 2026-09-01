@@ -79,6 +79,15 @@
     (set-frame-size (selected-frame) 165 37))
   (global-display-line-numbers-mode t))
 
+(leaf whitespace
+  :tag "builtin"
+  :ensure t
+  :hook (after-init-hook . global-whitespace-mode)
+  :custom
+  ((whitespace-style . '(face
+			 trailing
+			 tabs))))
+
 (leaf autorevert
   :custom ((auto-revert-interval . 0.5))
   :global-minor-mode global-auto-revert-mode)
