@@ -32,6 +32,13 @@
 
 (leaf leaf-manager :ensure t)
 
+(leaf cc-mode
+  :hook
+  (c-mode-common-hook . my/c-mode-common-setup)
+  :config
+  (defun my/c-mode-common-setup ()
+    (c-set-offset 'arglist-intro '+)))
+
 (leaf cmake-mode
   :ensure t
   :mode ((("/CMakeLists\\.txt\\'") . cmake-mode)))
