@@ -117,6 +117,7 @@
 (leaf treemacs
   :ensure t
   :bind ()
+  :hook (after-init-hook . treemacs-start-on-boot)
   :config
   (setq treemacs-width 35))
 
