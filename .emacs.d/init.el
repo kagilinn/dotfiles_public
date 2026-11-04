@@ -62,6 +62,14 @@
 	 (  java-mode-hook . eglot-ensure)
 	 (kotlin-mode-hook . eglot-ensure)))
 
+(leaf flymake
+  :config
+  (defun my/start-flymake-project-diagnostics ()
+    (when flymake-mode
+      (flymake-show-project-diagnostics)))
+  :hook
+  (flymake-mode-hook . my/start-flymake-project-diagnostics))
+
 (leaf company
   :ensure t
   :blackout t
