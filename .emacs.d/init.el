@@ -86,6 +86,7 @@
   (when window-system
     (tab-bar-mode 1)
     (set-frame-size (selected-frame) 165 37))
+  (windmove-default-keybindings 'meta)
   (global-display-line-numbers-mode t))
 
 (leaf whitespace
