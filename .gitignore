@@ -3,6 +3,7 @@
 /.emacs.d/auto-save-list/
 /.emacs.d/eln-cache/
 /.emacs.d/elpa/
+/.emacs.d/tree-sitter/
 /.emacs.d/*.elc
 /.emacs.d/*.el~
 /.vim/autoload/

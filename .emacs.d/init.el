@@ -61,6 +61,7 @@
   :hook ((c-mode-hook . eglot-ensure)
 	 (c++-mode-hook . eglot-ensure)
 	 (csharp-mode-hook . eglot-ensure)
+	 ( go-ts-mode-hook . eglot-ensure)
 	 (  java-mode-hook . eglot-ensure)
 	 (kotlin-mode-hook . eglot-ensure)))
 
@@ -79,6 +80,7 @@
   :hook ((    c-mode-hook . company-mode)
 	 (  c++-mode-hook . company-mode)
 	 (csharp-mode-hook . company-mode)
+	 ( go-ts-mode-hook . company-mode)
 	 (  java-mode-hook . company-mode)
 	 ( perl-mode-hook . company-mode)
 	 (cperl-mode-hook . company-mode)))
