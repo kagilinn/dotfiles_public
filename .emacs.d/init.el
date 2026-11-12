@@ -56,6 +56,8 @@
   :mode ((("\\.zig\\'") . zig-mode)))
 
 (leaf eglot
+  :bind (:eglot-mode-map ("M-RET" . eglot-code-actions))
+  :custom ((eglot-code-action-indications . '(eldoc-hint margin mode-line)))
   :hook ((c-mode-hook . eglot-ensure)
 	 (c++-mode-hook . eglot-ensure)
 	 (csharp-mode-hook . eglot-ensure)
