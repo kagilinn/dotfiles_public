@@ -91,6 +91,19 @@
 	 ( perl-mode-hook . company-mode)
 	 (cperl-mode-hook . company-mode)))
 
+(leaf shell
+  :custom ((shell-kill-buffer-on-exit . t))
+  :init
+  (setq explicit-shell-file-name (executable-find "ksh")))
+
+(leaf comint
+  :custom
+  ((comint-prompt-read-only . t)
+   (comint-buffer-maximum-size . 4096)
+   (comint-input-ignoredups . t)
+   (comint-scroll-to-bottom-on-input . t)
+   (comint-move-point-for-output . t)))
+
 (leaf cus-start
   :setq-default `((tab-bar-show                  . t)
 		  (tab-bar-new-tab-choice        . "*scratch*")
