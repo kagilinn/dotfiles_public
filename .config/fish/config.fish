@@ -5,6 +5,7 @@ if status is-interactive
     abbr --add rm    rm -i
     abbr --add vim   vim -p
     abbr --add view  vim -p -R
+    abbr --add emacs emacs -nw
 
     abbr --add rcs-init     mkdir -v RCS
     abbr --add rcs-checkout co -l

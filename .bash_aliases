@@ -5,6 +5,7 @@
 export LOADED_PROFILES="${LOADED_PROFILES} .bash_aliases"
 
 alias cp='cp -i'
+alias emacs='emacs -nw'
 alias ls='ls ${LS_COLOR_OPTION_FLAG}'
 alias la='ls -a ${LS_COLOR_OPTION_FLAG}'
 alias ll='ls -l ${LS_COLOR_OPTION_FLAG}'

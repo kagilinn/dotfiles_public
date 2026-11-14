@@ -81,6 +81,8 @@ alias rm='rm -i'
 alias vim='vim -p'
 alias view='vim -R -p'
 
+alias emacs='emacs -nw'
+
 alias grep='grep --color=auto -I'
 alias fgrep='grep --color=auto -I -F'
 alias egrep='grep --color=auto -I -E'

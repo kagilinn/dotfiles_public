@@ -4,6 +4,10 @@ function     Init-RCS { New-Item -Type Directory -Name RCS }
 function Checkout-RCS { co -l @args }
 function   Commit-RCS { ci -l @args }
 
+function vim   { vim -p    @args }
+function view  { vim -p -R @args }
+function emacs { emacs -nw @args }
+
 function ga    { git add                                    @args }
 function gb    { git branch                                 @args }
 # gc だと Get-Content の標準エイリアスと被る.
