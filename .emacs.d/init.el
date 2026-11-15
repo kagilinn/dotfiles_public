@@ -44,9 +44,11 @@
   :mode ((("/CMakeLists\\.txt\\'") . cmake-mode)))
 
 (leaf go-ts-mode
+  :mode ((("\\.go\\'") . go-ts-mode))
   :custom
   (indent-tabs-mode . t)
   (tab-width . 4)
+  (go-ts-mode-indent-offset . 4)
   (go-ts-indent-offset . 4))
 
 (leaf groovy-mode
